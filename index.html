@@ -6,7 +6,7 @@
   <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
   <style>
     body {
-      font-family: Times New Roman, sans-serif;
+      font-family: "Times New Roman", serif;
       margin: 0;
       padding: 0;
     }
@@ -22,78 +22,64 @@
       height: auto;
     }
 
-nav {
-  background-color: #333;
-  overflow: hidden;
-}
+    nav {
+      background-color: #333;
+    }
 
-nav ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
 
-nav li {
-  position: relative;
-  float: left;
-}
+    nav li {
+      display: inline-block;
+      position: relative;
+    }
 
-nav .dropbtn {
-  background-color: #333;
-  color: white;
-  padding: 14px 16px;
-  border: none;
-  cursor: pointer;
-  font-size: 16px;
-}
+    .dropbtn {
+      background-color: #333;
+      color: white;
+      padding: 14px 16px;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+    }
 
-nav .dropbtn:hover {
-  background-color: #111;
-}
+    .dropbtn:hover {
+      background-color: #111;
+    }
 
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  min-width: 180px;
-  z-index: 1;
-}
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      min-width: 180px;
+      z-index: 1;
+      top: 100%;
+      left: 0;
+    }
 
-.dropdown-content li a {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-}
+    .dropdown-content a {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
 
-.dropdown-content li a:hover {
-  background-color: #f1f1f1;
-}
+    .dropdown-content a:hover {
+      background-color: #f1f1f1;
+    }
 
-
+    .dropdown-content.show {
+      display: block;
+    }
 
     main {
       padding: 20px;
     }
   </style>
 </head>
-  <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const button = document.querySelector('.dropbtn');
-    const dropdown = document.getElementById('worksDropdown');
-
-    button.addEventListener('click', () => {
-      dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
-    });
-
-    // Optional: Close dropdown if clicking outside
-    document.addEventListener('click', (event) => {
-      if (!button.contains(event.target) && !dropdown.contains(event.target)) {
-        dropdown.style.display = 'none';
-      }
-    });
-  });
-</script>
 
 <body>
 
@@ -106,17 +92,18 @@ nav .dropbtn:hover {
 <nav>
   <ul>
     <li class="dropdown">
-      <button class="dropbtn">Works ▼</button>
-      <ul class="dropdown-content" id="worksDropdown">
-        <li><a href="birds.html">Birds</a></li>
-        <li><a href="xian.html">Xian</a></li>
-        <li><a href="dream-mountain.html">Dream Mountain</a></li>
-        <li><a href="stone-flower-green.html">Stone Flower Green</a></li>
-        <li><a href="general-motors.html">General Motors</a></li>
-      </ul>
+      <button class="dropbtn" id="worksButton">Works ▼</button>
+      <div class="dropdown-content" id="worksDropdown">
+        <a href="birds.html">Birds</a>
+        <a href="xian.html">Xian</a>
+        <a href="dream-mountain.html">Dream Mountain</a>
+        <a href="stone-flower-green.html">Stone Flower Green</a>
+        <a href="general-motors.html">General Motors</a>
+      </div>
     </li>
   </ul>
 </nav>
+
 <main>
   <div style="display: flex; gap: 20px; align-items: flex-start;">
     <!-- Flash Game -->
@@ -127,7 +114,7 @@ nav .dropbtn:hover {
     <!-- Info Box -->
     <div style="max-width: 400px; padding: 10px; border: 1px solid #ccc; background-color: #f9f9f9;">
       <h3>About the Work</h3>
-      <p><strong>Title:</strong>The Street of Birds</p>
+      <p><strong>Title:</strong> The Street of Birds</p>
       <p><strong>Author:</strong> Brian Flaherty</p>
       <p><strong>Description:</strong>   
          Generously donated by Brian Flaherty to be preserved by the New Zealand Digital Literary Heritage Project.
@@ -136,6 +123,23 @@ nav .dropbtn:hover {
   </div>
 </main>
 
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const button = document.getElementById('worksButton');
+    const dropdown = document.getElementById('worksDropdown');
+
+    button.addEventListener('click', (e) => {
+      e.stopPropagation(); // Prevent immediate closing
+      dropdown.classList.toggle('show');
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!dropdown.contains(e.target) && !button.contains(e.target)) {
+        dropdown.classList.remove('show');
+      }
+    });
+  });
+</script>
 
 </body>
 </html>
