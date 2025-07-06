@@ -92,15 +92,27 @@
 <nav>
   <ul>
     <!-- Home -->
-    <li><a href="index.html" class="navlink">Home</a></li>
+    <li>
+      <form action="index.html">
+        <button type="submit" class="dropbtn">Home</button>
+      </form>
+    </li>
 
     <!-- About -->
-    <li><a href="about.html" class="navlink">About</a></li>
+    <li>
+      <form action="about.html">
+        <button type="submit" class="dropbtn">About</button>
+      </form>
+    </li>
 
     <!-- How To -->
-    <li><a href="how-to.html" class="navlink">How To</a></li>
+    <li>
+      <form action="how-to.html">
+        <button type="submit" class="dropbtn">How To</button>
+      </form>
+    </li>
 
-    <!-- Dropdown for Works -->
+    <!-- Works dropdown -->
     <li class="dropdown">
       <button class="dropbtn" id="worksButton">Works ▼</button>
       <div class="dropdown-content" id="worksDropdown">
@@ -113,6 +125,7 @@
     </li>
   </ul>
 </nav>
+
 
 <main>
   <div style="display: flex; gap: 20px; align-items: flex-start;">
