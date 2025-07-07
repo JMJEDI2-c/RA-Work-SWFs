@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Bookmark - Helen Sword</title>
+  <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
+  <style>
+    body {
+      font-family: "Times New Roman", serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #f2f2f2;
+      text-align: center;
+      padding: 20px;
+    }
+
+    header img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    nav {
+      background-color: #00008B;
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav li {
+      display: inline-block;
+      position: relative;
+    }
+
+    .dropbtn {
+      background-color: #FFD700;
+      color: black;
+      padding: 14px 16px;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .dropbtn:hover {
+      background-color: #AA6C39;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      min-width: 180px;
+      z-index: 1;
+      top: 100%;
+      left: 0;
+    }
+
+    .dropdown-content a {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #f1f1f1;
+    }
+
+    .dropdown-content.show {
+      display: block;
+    }
+
+    main {
+      padding: 40px 20px;
+    }
+
+    .content-wrapper {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+      justify-content: center;
+    }
+
+    .info-box {
+      max-width: 400px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      background-color: #f9f9f9;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <img src="header-image.jpg" alt="New Zealand Digital Literary Heritage and Preservation Project">
+  <h1>New Zealand Digital Literary Heritage and Preservation Project</h1>
+  <p>Marina Cone</p>
+</header>
+
+<nav>
+  <ul>
+    <li>
+      <form action="index.html">
+        <button type="submit" class="dropbtn">Home</button>
+      </form>
+    </li>
+    <li>
+      <form action="about.html">
+        <button type="submit" class="dropbtn">About</button>
+      </form>
+    </li>
+    <li>
+      <form action="how-to.html">
+        <button type="submit" class="dropbtn">How To</button>
+      </form>
+    </li>
+    <li class="dropdown">
+      <button class="dropbtn" id="worksButton">Works ▼</button>
+      <div class="dropdown-content" id="worksDropdown">
+        <a href="birds.html">Birds</a>
+        <a href="xian.html">Xian</a>
+        <a href="dream-mountain.html">Dream Mountain</a>
+        <a href="stone-flower-green.html">Stone Flower Green</a>
+        <a href="general-motors.html">General Motors</a>
+        <a href="bookmark.html">Bookmark</a>
+      </div>
+    </li>
+  </ul>
+</nav>
+
+<main>
+  <div class="content-wrapper">
+    <!-- Flash Embed -->
+    <div>
+      <embed src="bookmark.swf" width="600" height="400">
+    </div>
+
+    <!-- Info Box -->
+    <div class="info-box">
+      <h3>About the Work</h3>
+      <p><strong>Title:</strong> Bookmark</p>
+      <p><strong>Author:</strong> Helen Sword</p>
+      <p><strong>Description:</strong>   
+         This poetic Flash piece by Helen Sword invites interaction through symbolic and structural transformations of text. *Bookmark* explores memory, reading, and the ways we digitally inscribe experience.
+      </p>
+    </div>
+  </div>
+</main>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const button = document.getElementById('worksButton');
+    const dropdown = document.getElementById('worksDropdown');
+
+    button.addEventListener('click', (e) => {
+      e.stopPropagation();
+      dropdown.classList.toggle('show');
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!dropdown.contains(e.target) && !button.contains(e.target)) {
+        dropdown.classList.remove('show');
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
