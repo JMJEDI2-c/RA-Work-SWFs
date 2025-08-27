@@ -11,16 +11,7 @@
       padding: 0;
       overflow-x: hidden;
     }
-
-    header {
-      background-color: #f2f2f2;
-      text-align: center;
-      padding: 20px;
-      opacity: 0;
-      transform: translateY(-50px);
-      animation: slideInDown 0.8s ease-out forwards;
-    }
-
+    
     @keyframes slideInDown {
       to {
         opacity: 1;
@@ -28,13 +19,36 @@
       }
     }
 
-    header img {
-      max-width: 100%;
-      max-height: 100px;  /* Adjust this value to control image height */
-      height: auto;
-      margin-top: 10px;   /* Add some space between text and image */
-    }
+header {
+  background-color: #f2f2f2;
+  text-align: center;
+  padding: 20px;
+  opacity: 0;
+  transform: translateY(-50px);
+  animation: slideInDown 0.8s ease-out forwards;
+  position: relative;
+}
 
+header img {
+  max-width: 100%;
+  max-height: 200px;
+  height: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  z-index: 1;
+}
+
+header h1, header p {
+  position: relative;
+  z-index: 2;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+  margin: 10px 0;
+}
     nav {
       background-color: #00008B;
       position: sticky;
@@ -223,9 +237,9 @@
 <body>
 
 <header>
-  <img src="header-image.jpg" alt="New Zealand Digital Literary Heritage and Preservation Project">
   <h1>New Zealand Digital Literary Heritage and Preservation Project</h1>
   <p>Marina Cone</p>
+  <img src="header-image.jpg" alt="New Zealand Digital Literary Heritage and Preservation Project">
 </header>
 
 <nav>
