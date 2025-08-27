@@ -273,7 +273,47 @@
 
 <main>
   <section class="scroll-section">
-    <h2 class="section-header">How to Access and Experience Digital Literary Works</h2>
+    <h2 class="section-header">How to Preserve Digital Literary Works</h2>
+    <p>
+1. Find and catalogue the work in question. If it has any additional broken components, be sure to list those. Additional broken components can include broken links, defunct audio, missing images, and incorrectly formatted text.
+
+2. Recover any and all source files you can. This is an essential part of recovering a Flash work, as without either a) a website that is still hosting the source file or b) the source file itself, neither recovery method will work correctly. Having source files archived is great for posterity as well, as if a new technological advancement comes up that means we can save a work that seems broken, we might as well have the work on hand, even if successive steps don't work right now. 
+
+To recover source files, there are a couple of methods that have worked for me so far.
+
+2a. Use "inspect element" by right clicking on the page and clicking on "inspect element". This will open the page's html code, and will allow you to see if there are any files embedded on the page that can be accessed by simply downloading them.
+
+2b. Copy the url into "file2hd.com", a website that will perform an automatic trawling of step 1 that will catch anything you missed. However, sometimes file2hd will miss things or cannot read certain webpages. It is always worth trying both steps to make sure you get everything you can from the webpage.
+
+2c. Search the internet and all the page's additional links. While certain works might not seem to be functional, there are sometimes (if the author was forward-thinking enough) archival links of their own that allow for you to recover the data more easily. This step is obviously down to individual works and the discretion of each individual author. Very rarely you will find something on internet archive - I personally find the Internet Archive somewhat infuriating to find my way around sometimes, so only worth engaging with if you are at your wits end and cannot find anything in the other sources.
+3. From here you should have one of three options. Either a) you have successfully located the source file of the Flash work in question (which should be a shockwave flash file that looks like "genericexample.swf"), b) you have a hosted flash page but no way to recover the shockwave flash file itself, or c) you have an archived description of a work but no way to access the source files. If the answer is c) it is likely the work itself is irrecoverable.
+
+If you have a), the first place you will want to test is Ruffle. Ruffle has a demo, wherein you can upload the file you have to see if it works or not. Sometimes there will be elements you notice that are genuinely broken. If they are, take note of them. Should it work, you will be ready to embed Ruffle on your very own website!
+
+Provided your website provider enables you to easily poke around and embed HTML code (which all modern website hosting services should provide), it is relatively easy to use. I recommend Google Sites rather than Wordpress, as it is a bit more intuitive to use for beginners, and doesn't paywall any of the important features you will need to run the Ruffle plugin.
+
+You'll need a Github account, and you'll need to create a new, public, repository on Github. If the repository is private, Ruffle will not be able to access the file you want it to run. After creating a new Github repository, upload your .swf file (and any other accompanying files you think you will need to embed on your page) by using the "upload existing files" link that appears in blue after creating a  new repository.
+
+Now, just reference the name of the .swf file in your embed code.   
+<section class="scroll-section" data-section="xian">
+    <div class="content-wrapper">
+      <div class="flash-container">
+        <embed src="xian.swf" width="600" height="400">
+      </div>
+
+All things going well (and if you have the source files, they should very well be!), you now have successfully preserved a flash work. To test this on Google Sites, publish your site, then, using the dropdown menu next to "Publish", click "View published site".
+
+It is important to note that this method does not require the person who is viewing the website to have any additional plugins, downloads, or other software. This is probably the most accessible way to actually preserve a flash work, and is the most highly recommended method for accessibility and ease of preservation. The harder case comes when you do not have access to the raw files themselves.
+
+So if you have b), it is worth seeing if Conifer runs it instead. Instead of taking a source file, Conifer emulates an older web browser that still has Flash functionality. This is good in theory, but I have trouble getting it to work with some works - so it is less reliable than method a), which is why the recovery of the source files is so important. Still, Conifer is always worth a try, as it allows you to save the webpages in your own archive with a Conifer profile, and means you don't have to do any of the heavy lifting in terms of hosting your own versions of the work.
+
+Once you have preserved a work by saving the webpage, you can make your collection public. After doing so, Conifer will generate some embed code for you, meaning you can slap it in perhaps easier than Ruffle by using the embed code feature once again - though Conifer works are a bit less stable and also don't look quite as good as Ruffle-hosted works. Still, in some ways a bit easier, if a bit less reliable.
+
+</p>
+  </section>
+
+    <section class="scroll-section">
+    <h2 class="section-header">How to Play Digital Literary Works</h2>
     <p>This guide provides instructions for viewing and interacting with the preserved Flash-based literary works in our collection. These experimental digital texts require specific browser configurations and understanding of their interactive elements.</p>
   </section>
 
@@ -290,7 +330,7 @@
       </div>
       <div class="info-card">
         <h4>🔧 Required Plugins</h4>
-        <p>Ruffle Flash emulator (automatically loaded). No additional plugins required. Adobe Flash Player is deprecated and not needed.</p>
+        <p>Ruffle Flash emulator (automatically loaded). No additional plugins required. Adobe Flash Player was rendered defunct in 2020 and is not needed thanks to Ruffle.</p>
       </div>
     </div>
   </section>
